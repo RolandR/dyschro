@@ -1,0 +1,91 @@
+
+.tabsContainer{
+	background-color: #666666;
+    height: 100%;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.tabShell{
+    position: relative;
+    list-style: none;
+}
+
+.tabRadio{
+	position: absolute;
+	display: none;
+}
+
+.tabLabel{
+	display: block;
+    float: left;
+    width: 50%;
+    height: 40px;
+    font-size: 17px;
+    font-weight: 200;
+    text-align: center;
+    background-color: #555555;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+    cursor: pointer;
+    padding-top: 7px;
+    box-sizing: border-box;
+    border: 1px #000000 solid;
+    border-width: 0px 0px 1px 0px;
+}
+
+.tabLabel:hover{
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
+}
+
+.tabRadio:checked ~ .tabLabel:hover{
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+}
+
+.tab{
+	position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    top: 40px;
+    display: none;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.tabRadio:checked ~ .tab{
+	display: block;
+}
+
+.tabRadio:checked ~ .tabLabel{
+	background-color: #666666;
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+	border-width: 1px 1px 0px 1px;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+	padding-top: 6px;
+}
+
+.tabShell:first-child .tabRadio:checked ~ .tabLabel{
+	border-width: 1px 1px 0px 0px;
+	padding-left: 1px;
+}
+
+.tabShell:last-child .tabRadio:checked ~ .tabLabel{
+	border-width: 1px 0px 0px 1px;
+	padding-right: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

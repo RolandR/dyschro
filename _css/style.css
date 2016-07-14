@@ -1,0 +1,135 @@
+
+@import url(openSansFont/OpenSans.css);
+@import url(generic.css);
+@import url(tabs.css);
+@import url(overlay.css);
+
+body{
+	background-color: #222222;
+	color: #FFFFFF;
+	font-family: "Open Sans", sans-serif;
+}
+
+html, body{
+	height: 100%;
+	width: 100%;
+}
+
+h1{
+	font-weight: 200;
+	font-size: 25px;
+	text-shadow: 1px 1px #000000;
+	
+}
+
+#menu{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 300px;
+	background-color: #555555;
+	text-align: center;
+}
+
+#openImage{
+	font-size: 17px;
+	font-weight: 200;
+	padding: 7px;
+}
+
+#thumbnailImage{
+	border: 5px #888888 solid;
+}
+
+#imageContainer{
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	bottom: 30px;
+	left: 330px;
+	text-align: center;
+}
+
+#image{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#canvasContainer{
+	display: inline-block;
+	position: absolute;
+}
+
+#canvasHider{
+	width: 50%;
+	overflow: hidden;
+}
+
+#canvasSlider{
+	background-color: #FFFFFF;
+	height: 50px;
+	width: 50px;
+	margin-left: -25px;
+	display: inline-block;
+	float: right;
+}
+
+#buffer{
+	display: none;
+}
+
+.settingsBox{
+	text-align: left;
+	display: none;
+	margin-top: 10px;
+}
+
+.setting{
+	background-color: #555555;
+    margin: 10px;
+    padding: 5px 10px;
+    width: 200px;
+}
+
+#protanSettings{
+	display: inline-block;
+}
+
+.setting label{
+	width: 100%;
+	display: inline-block;
+	padding: 0px 5px;
+    margin: 0px -5px;
+
+    transition: background-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 100ms;
+}
+
+.setting label.radioLabel:hover{
+	background-color: #666666;
+}
+
+.setting input{
+	width: 100%;
+	margin-top: 3px;
+}
+
+.setting input[type="radio"]{
+	float: right;
+	width: 13px;
+	margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

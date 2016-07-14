@@ -1,0 +1,98 @@
+#overlay{
+	position: absolute;
+	z-index: 10000;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.overlayWindow{
+	width: 100%;
+	max-width: 700px;
+	max-height: 500px;
+	margin: 50px auto;
+	background-color: #444444;
+	padding: 10px;
+}
+
+.overlayButtons{
+	height: 40px;
+    margin-top: 20px;
+}
+
+.closeOverlayButton{
+	float: right;
+	width: 25px;
+	height: 25px;
+}
+
+.cancelOverlayButton{
+	float: right;
+    height: 30px;
+    width: 100px;
+    line-height: 0.8em;
+}
+
+.thumbContainer{
+	width: 200px;
+	height: 160px;
+	background-color: #555555;
+	border: 1px #777777 solid;
+	padding: 5px;
+	display: inline-block;
+	margin: 5px;
+	vertical-align: top;
+	cursor: pointer;
+}
+
+.thumbContainer:hover{
+	background-color: #666666;
+	border: 1px #888888 solid;
+}
+
+.thumb{
+	
+}
+
+#thumbsContainer{
+	white-space: nowrap;
+	height: 200px;
+	overflow-x: auto;
+	margin: 0px 10px;
+}
+
+#uploadMethods{
+	text-align: center;
+	margin: 10px;
+	line-height: 100px;
+}
+
+#uploadMethods > *{
+	line-height: normal;
+	vertical-align: middle;
+}
+
+#or{
+	display: inline-block;
+	width: 100px;
+}
+
+#fileUploadLabel{
+	width: 100px;
+	height: 50px;
+	display: inline-block;
+	box-sizing: border-box;
+	padding-top: 11px;
+}
+
+#fileDragTarget{
+	display: inline-block;
+    height: 100px;
+    width: 100px;
+    border: 2px #666666 dashed;
+    box-sizing: border-box;
+    padding: 5px;
+    background-color: #3C3C3C;
+}
