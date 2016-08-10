@@ -22,7 +22,7 @@ function init(){
 
 function MouseSlider(){
 	var canvasSlider = document.getElementById("canvasSlider");
-	var canvasHider = document.getElementById("canvasHider")
+	var canvasHider = document.getElementById("canvasHiderContainer");
 
 	var mouseX = 0;
 	var oldWidth;
@@ -92,6 +92,21 @@ function showOverlay(){
 
 function hideOverlay(){
 	document.getElementById("overlay").style.display = "none";
+}
+
+document.getElementById("overlay").onclick = function(e){
+	e.stopPropagation();
+	if(e.target == this){
+		hideOverlay();
+	}
+}
+
+document.onkeyup = function(e){
+	switch(e.keyCode){
+		case 27:
+			hideOverlay();
+		break;
+	}
 }
 
 function prepareImage(){

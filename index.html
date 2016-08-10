@@ -31,7 +31,7 @@
 						<div class="settingsBox" id="protanSettings">
 							<div class="setting">
 								<label for="c-protanIntensity">Intensity</label><br />
-								<input  id="c-protanIntensity" type="range" min="0" max="1" step="0.1" value="1" /><br />
+								<input  id="c-protanIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
 							<div class="setting">
 								<label for="c-protanBrightenRed">Brighten red</label><br />
@@ -86,10 +86,15 @@
 		
 		<div id="imageContainer">
 				<div id="canvasContainer">
-				<div id="canvasHider">
-					<canvas id="render"></canvas>
-					<div id="canvasSlider" draggable="false"></div>
-				</div>
+					<div id="canvasHiderContainer">
+						<div id="canvasHider">
+							<canvas id="render"></canvas>
+						</div>
+						<div id="canvasSlider" draggable="false">
+							<div class="dragger" id="upperDragger">&lt;||&gt;</div>
+							<div class="dragger" id="lowerDragger">&lt;||&gt;</div>
+						</div>
+					</div>
 				</div>
 				<img id="image" />
 		</div>
@@ -126,6 +131,9 @@
 					</div>
 					<div class="thumbContainer" onclick="loadImage('spectrum.png');">
 						<img class="thumb" src="./_exampleImages/thumbs/spectrum.png" />
+					</div>
+					<div class="thumbContainer" onclick="loadImage('stefan_rainbow.jpg');">
+						<img class="thumb" src="./_exampleImages/thumbs/stefan_rainbow.jpg" />
 					</div>
 				</div>
 				<div class="overlayButtons">
