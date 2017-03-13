@@ -82,11 +82,27 @@ void main(void){
 	vec3 rgb = texture2D(u_image, texCoord).rgb;
 	float a = texture2D(u_image, texCoord).a;
 
-	rgb = pow(rgb, vec3(2.2, 2.2, 2.2));
-	rgb = rgb * colorTransform;
-	rgb = pow(rgb, vec3(1.0/2.2, 1.0/2.2, 1.0/2.2));
-	
-	gl_FragColor = vec4(rgb, a);
+	if(mode <= 2){
+
+		rgb = pow(rgb, vec3(2.2, 2.2, 2.2));
+		rgb = rgb * colorTransform;
+		rgb = pow(rgb, vec3(1.0/2.2, 1.0/2.2, 1.0/2.2));
+		
+		gl_FragColor = vec4(rgb, a);
+
+	} else if(mode == 3){
+		
+		float gray = dot(rgb, vec3(0.299, 0.587, 0.114));
+		vec3 grayPart = vec3(gray, gray, gray);
+
+		grayPart = pow(grayPart, vec3(2.2, 2.2, 2.2));
+		rgb = pow(rgb, vec3(2.2, 2.2, 2.2));
+		rgb = grayPart * intensity + rgb * (1.0 - intensity);
+		rgb = pow(rgb, vec3(1.0/2.2, 1.0/2.2, 1.0/2.2));
+
+		gl_FragColor = vec4(rgb, a);
+		
+	} 
 	
 	
 	//gl_FragColor = texture2D(u_image, texCoord).rgba - vec4(0.5, 0.5, 0.5, 0.0);

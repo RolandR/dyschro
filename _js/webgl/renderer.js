@@ -135,7 +135,7 @@ function Renderer(canvasId){
 				//var transform = getInterpolatedTransform(colorTransforms.protan, settings.protanIntensity*10);
 				//gl.uniformMatrix3fv(colorTransformAttr, false, transform);
 				gl.uniform1i(modeAttr, 3);
-				gl.uniform1f(intensityAttr, 1);
+				gl.uniform1f(intensityAttr, settings.monoIntensity);
 			break;
 			default:
 			break;

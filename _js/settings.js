@@ -4,6 +4,7 @@ var presets = {
 	,protanIntensity: 1
 	,deutanIntensity: 1
 	,tritanIntensity: 1
+	,monoIntensity: 1
 }
 
 var settings = new Settings(presets);
@@ -48,6 +49,16 @@ function Settings(presets){
 				 document.getElementById("c-tritanIntensity")
 			]
 			,value: presets.tritanIntensity
+			,update: function(e){
+				this.value = e.target.value;
+				apply();
+			}
+		}
+		,monoIntensity: {
+			elements: [
+				 document.getElementById("c-coneMonochromacyIntensity")
+			]
+			,value: presets.monoIntensity
 			,update: function(e){
 				this.value = e.target.value;
 				apply();
