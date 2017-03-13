@@ -2,8 +2,8 @@
 var presets = {
 	 mode: "protan"
 	,protanIntensity: 1
-	,protanBrightenRed: 0
 	,deutanIntensity: 1
+	,tritanIntensity: 1
 }
 
 var settings = new Settings(presets);
@@ -28,16 +28,6 @@ function Settings(presets){
 				 document.getElementById("c-protanIntensity")
 			]
 			,value: presets.protanIntensity
-			,update: function(e){
-				this.value = e.target.value;
-				apply();
-			}
-		}
-		,protanBrightenRed: {
-			elements: [
-				 document.getElementById("c-protanBrightenRed")
-			]
-			,value: presets.protanBrightenRed
 			,update: function(e){
 				this.value = e.target.value;
 				apply();
@@ -92,7 +82,7 @@ function Settings(presets){
 				newConfig[i] = inputs[i].value;
 			}
 		}
-		converter.convert(newConfig);
+		renderer.render(newConfig);
 	}
 }
 
