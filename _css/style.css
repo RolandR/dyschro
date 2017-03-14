@@ -22,6 +22,16 @@ h1{
 	
 }
 
+a{
+	color: #FFAA55;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
 #menu{
 	position: absolute;
 	top: 0px;
@@ -30,6 +40,7 @@ h1{
 	width: 300px;
 	background-color: #555555;
 	text-align: center;
+	overflow: hidden;
 }
 
 #openImage{
@@ -73,7 +84,7 @@ h1{
 }
 
 #canvasSlider{
-	background-color: rgba(255, 255, 255, 0.2);
+	/*background-color: rgba(255, 255, 255, 0.2);*/
 	width: 70px;
 	position: absolute;
 	right: -35px;
@@ -111,19 +122,28 @@ h1{
 }
 
 .settingsBox{
-	text-align: left;
 	display: none;
 	margin-top: 10px;
+	text-align: left;
+	
 }
 
 .setting{
+	text-align: left;
 	background-color: #555555;
     margin: 10px;
     padding: 5px 10px;
     width: 200px;
 }
 
-#protanSettings{
+.settingsInfo{
+    padding: 5px 10px;
+	position: absolute;
+	left: 0px;
+}
+
+#protanSettings,
+#highlightSettings{
 	display: inline-block;
 }
 

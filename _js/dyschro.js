@@ -129,8 +129,8 @@ function prepareImage(){
 }
 
 function scaleCanvas(){
-	canvas.style.height = imageElement.height + "px";
-	canvas.style.width = imageElement.width + "px";
+	canvas.style.height = ~~(imageElement.height) + "px";
+	canvas.style.width = ~~(imageElement.width) + "px";
 }
 
 init();

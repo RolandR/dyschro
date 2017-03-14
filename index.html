@@ -33,6 +33,11 @@
 								<label for="c-protanIntensity">Intensity</label><br />
 								<input  id="c-protanIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
+							<p class="settingsInfo">
+								Simulation based on the method described by
+								<a href="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">
+									Machado, Oliveira, Fernandes (2009)</a>.
+							</p>
 						</div>
 						
 						<div class="settingsBox" id="deutanSettings">
@@ -40,6 +45,11 @@
 								<label for="c-deutanIntensity">Intensity</label><br />
 								<input  id="c-deutanIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
+							<p class="settingsInfo">
+								Simulation based on the method described by
+								<a href="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">
+									Machado, Oliveira, Fernandes (2009)</a>.
+							</p>
 						</div>
 						
 						<div class="settingsBox" id="tritanSettings">
@@ -47,6 +57,11 @@
 								<label for="c-tritanIntensity">Intensity</label><br />
 								<input  id="c-tritanIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
+							<p class="settingsInfo">
+								Simulation based on the method described by
+								<a href="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">
+									Machado, Oliveira, Fernandes (2009)</a>.
+							</p>
 						</div>
 						
 						<div class="settingsBox" id="coneMonochromacySettings">
@@ -75,7 +90,24 @@
 				<li class="tabShell">
 					<input class="tabRadio" type="radio" name="tabs" id="supportTab" />
 					<label class="tabLabel" for="supportTab">Helpful Tools</label>
-					<div class="tab" id="supportTabContent">SuppContent</div>
+					<div class="tab" id="supportTabContent">
+						<select id="c-toolSelect">
+							<option value="highlight">Highlight Color</option>
+							<option value="saturate">Saturate</option>
+							<option value="switch">Switch colors</option>
+							<option value="rotate">Rotate hue</option>
+						</select>
+
+						<div class="settingsBox" id="highlightSettings">
+							<div class="setting">
+								<label class="fancyRadio">Red <input type="radio" value="red" name="colorToHighlight" active></label>
+								<label class="fancyRadio">Green <input type="radio" value="red" name="colorToHighlight"></label>
+								<label class="fancyRadio">Blue <input type="radio" value="red" name="colorToHighlight"></label>
+								<label class="fancyRadio">Yellow <input type="radio" value="red" name="colorToHighlight"></label>
+							</div>
+						</div>
+						
+					</div>
 				</li>
 			</ul>
 		</nav>

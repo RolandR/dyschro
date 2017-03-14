@@ -5,6 +5,8 @@ var presets = {
 	,deutanIntensity: 1
 	,tritanIntensity: 1
 	,monoIntensity: 1
+	,tool: "highlight"
+	,highlightColor: 0
 }
 
 var settings = new Settings(presets);
@@ -64,6 +66,18 @@ function Settings(presets){
 				apply();
 			}
 		}
+		
+		,tool: {
+			elements: [
+				 document.getElementById("c-toolSelect")
+			]
+			,value: presets.tool
+			,update: function(e){
+				this.value = e.target.value;
+				switchTool(e);
+				apply();
+			}
+		}
 	}
 	
 	function init(){
@@ -99,7 +113,7 @@ function Settings(presets){
 
 
 function switchSimulationSettings(e){
-	var settingsContainers = document.getElementsByClassName("settingsBox");
+	var settingsContainers = document.getElementById("simTabContent").getElementsByClassName("settingsBox");
 	for(var i in settingsContainers){
 		if(settingsContainers.hasOwnProperty(i)){
 			settingsContainers[i].style.display = "none";
@@ -111,3 +125,20 @@ function switchSimulationSettings(e){
 		showElement.style.display = "inline-block";
 	}
 }
+
+function switchTool(e){
+	var settingsContainers = document.getElementById("supportTabContent").getElementsByClassName("settingsBox");
+	for(var i in settingsContainers){
+		if(settingsContainers.hasOwnProperty(i)){
+			settingsContainers[i].style.display = "none";
+		}
+	}
+
+	var showElement = document.getElementById(e.target.value + "Settings");
+	if(showElement){
+		showElement.style.display = "inline-block";
+	}
+}
+
+
+
