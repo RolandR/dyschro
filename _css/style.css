@@ -151,28 +151,17 @@ a:hover{
 	width: 100%;
 	display: inline-block;
 	padding: 0px 5px;
-    margin: 0px -5px;
+    margin: 0px -5px -1px -5px;
 
     transition: background-color;
     transition-timing-function: ease-in-out;
     transition-duration: 100ms;
 }
 
-.setting label.radioLabel:hover{
-	background-color: #666666;
-}
-
 .setting input{
 	width: 100%;
 	margin-top: 3px;
 }
-
-.setting input[type="radio"]{
-	float: right;
-	width: 13px;
-	margin-top: 5px;
-}
-
 
 
 

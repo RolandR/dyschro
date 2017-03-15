@@ -123,7 +123,7 @@ function prepareImage(){
 	//converter.convert(presets);
 
 	renderer.setImage(image);
-	renderer.render(presets);
+	renderer.render(settings);
 
 	scaleCanvas();
 }

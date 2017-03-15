@@ -1,5 +1,5 @@
 
-var presets = {
+var settings = {
 	 mode: "protan"
 	,protanIntensity: 1
 	,deutanIntensity: 1
@@ -9,9 +9,9 @@ var presets = {
 	,highlightColor: 0
 }
 
-var settings = new Settings(presets);
+var controls = new Controls(settings);
 
-function Settings(presets){
+function Controls(presets){
 
 	var inputs = {
 		 mode: {
@@ -107,6 +107,7 @@ function Settings(presets){
 				newConfig[i] = inputs[i].value;
 			}
 		}
+		settings = newConfig;
 		renderer.render(newConfig);
 	}
 }
