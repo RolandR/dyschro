@@ -35,15 +35,19 @@ function MouseSlider(){
 	var dragging = false;
 
 	canvasSlider.onmousedown = function(e){
+
+		console.log("foo!");
 		
-		mouseX = e.x;
+		mouseX = e.clientX;
 		oldWidth = canvasHider.offsetWidth;
 		dragging = true;
 	}
 
 	document.onmousemove = function(e){
 		if(dragging){
-			var difference = e.x - mouseX;
+			var difference = e.clientX - mouseX;
+
+			console.log(e.clientX);
 
 			canvasHider.style.width = oldWidth + difference + "px";
 			
