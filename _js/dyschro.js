@@ -35,21 +35,26 @@ function MouseSlider(){
 	var dragging = false;
 
 	canvasSlider.onmousedown = function(e){
-
-		console.log("foo!");
-		
 		mouseX = e.clientX;
 		oldWidth = canvasHider.offsetWidth;
 		dragging = true;
+		canvasSlider.className = "sliding";
+		e.preventDefault();
 	}
 
 	document.onmousemove = function(e){
 		if(dragging){
-			var difference = e.clientX - mouseX;
 
-			console.log(e.clientX);
+			var width = oldWidth + e.clientX - mouseX;
 
-			canvasHider.style.width = oldWidth + difference + "px";
+			if(width < 0){
+				width = 0;
+			} else if(width > canvas.clientWidth){
+				width = canvas.clientWidth;
+			}
+
+			canvasHider.style.width = width + "px";
+			e.preventDefault();
 			
 		}
 	}
@@ -57,6 +62,8 @@ function MouseSlider(){
 	document.onmouseup = function(e){
 		dragging = false;
 		relativeWidth = canvasHider.clientWidth / canvas.clientWidth;
+		canvasSlider.className = "";
+		e.preventDefault();
 	}
 
 	function resize(){
