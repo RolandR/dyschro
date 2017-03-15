@@ -13,11 +13,13 @@ var canvas = document.getElementById("render");
 var renderer = new Renderer("render");
 
 function init(){
-	var src = "fruits.jpg";
-
-	loadImage(src);
 	
 	window.onresize = scaleCanvas;
+	scaleCanvas();
+	
+	var src = "lorikeet.jpg";
+
+	loadImage(src);
 
 	var mouseSlider = new MouseSlider();
 }
@@ -65,24 +67,25 @@ function loadImage(imageName){
 	
 	var src = "./_exampleImages/"+imageName;
 	var thumbSrc = "./_exampleImages/thumbs/"+imageName;
-	
+
+	image.onload = prepareImage;
 	image.src = src;
 	imageElement.src = src;
 	document.getElementById("thumbnailImage").src = thumbSrc;
-	image.onload = prepareImage;
 
 	hideOverlay();
+	
 }
 
 function loadLocalImage(objectUrl){
-	
-	image.src = objectUrl;
-	imageElement.src = objectUrl;
-	document.getElementById("thumbnailImage").src = objectUrl;
+
 	image.onload = function(){
 		window.URL.revokeObjectURL(this.src);
 		prepareImage();
 	}
+	image.src = objectUrl;
+	imageElement.src = objectUrl;
+	document.getElementById("thumbnailImage").src = objectUrl;
 
 	hideOverlay();
 	
@@ -129,8 +132,8 @@ function prepareImage(){
 }
 
 function scaleCanvas(){
-	canvas.style.height = ~~(imageElement.height) + "px";
-	canvas.style.width = ~~(imageElement.width) + "px";
+	canvas.style.height = ~~(imageElement.scrollHeight) + "px";
+	canvas.style.width = ~~(imageElement.scrollWidth) + "px";
 }
 
 init();

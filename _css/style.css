@@ -60,6 +60,7 @@ a:hover{
 	bottom: 30px;
 	left: 330px;
 	text-align: center;
+	overflow: visible;
 }
 
 #image{
