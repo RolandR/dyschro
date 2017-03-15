@@ -1,12 +1,13 @@
 
 var settings = {
-	 mode: "protan"
+	 tab: "simulate"
+	,mode: "protan"
 	,protanIntensity: 1
 	,deutanIntensity: 1
 	,tritanIntensity: 1
 	,monoIntensity: 1
 	,tool: "highlight"
-	,highlightColor: 0
+	,highlightColor: "red"
 }
 
 var controls = new Controls(settings);
@@ -14,10 +15,28 @@ var controls = new Controls(settings);
 function Controls(presets){
 
 	var inputs = {
-		 mode: {
+		 tab: {
+			 type: "radio"
+			,elements: [
+				 document.getElementById("simTab")
+				,document.getElementById("supportTab")
+			]
+			,value: presets.tab
+			,update: function(e){
+				for(var i in this.elements){
+					if(this.elements.hasOwnProperty(i)){
+						if(this.elements[i].checked){
+							this.value = this.elements[i].value;
+						}
+					}
+				}
+				console.log(this.value);
+				apply();
+			}
+		}
+		,mode: {
 			elements: [
 				 document.getElementById("c-simulateMode")
-				,document.getElementById("c-supportMode")
 			]
 			,value: presets.mode
 			,update: function(e){
@@ -78,6 +97,27 @@ function Controls(presets){
 				apply();
 			}
 		}
+		,highlightColor: {
+			 type: "radio"
+			,elements: [
+				 document.getElementById("hlRed")
+				,document.getElementById("hlGreen")
+				,document.getElementById("hlBlue")
+				,document.getElementById("hlYellow")
+			]
+			,value: presets.highlightColor
+			,update: function(e){
+				for(var i in this.elements){
+					if(this.elements.hasOwnProperty(i)){
+						if(this.elements[i].checked){
+							this.value = this.elements[i].value;
+						}
+					}
+				}
+				console.log(this.value);
+				apply();
+			}
+		}
 	}
 	
 	function init(){
@@ -88,10 +128,19 @@ function Controls(presets){
 				
 				for(var e in input.elements){
 					if(input.elements[e]){
-						input.elements[e].value = input.value;
-						input.elements[e].checked = input.value;
-						input.elements[e].oninput = input.update.bind(input);
-						//input.elements[e].onclick = input.update.bind(input);
+						if(input.type == "radio"){
+							if(input.elements[e].value == input.value){
+								input.elements[e].checked = true;
+							} else {
+								input.elements[e].checked = false;
+							}
+							input.elements[e].onclick = input.update.bind(input);
+						} else {
+							input.elements[e].value = input.value;
+							input.elements[e].checked = input.value;
+							input.elements[e].oninput = input.update.bind(input);
+							//input.elements[e].onclick = input.update.bind(input);
+						}
 					}
 				}
 			}

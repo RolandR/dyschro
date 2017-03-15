@@ -101,7 +101,27 @@ void main(void){
 
 		gl_FragColor = vec4(rgb, a);
 		
-	} 
+	} else if(mode == 10){
+		
+		rgb.r = rgb.r - max(rgb.g, rgb.b);
+		gl_FragColor = vec4(rgb.rrr, a);
+		
+	} else if(mode == 11){
+		
+		rgb.r = rgb.g - max(rgb.r, rgb.b);
+		gl_FragColor = vec4(rgb.rrr, a);
+		
+	} else if(mode == 12){
+		
+		rgb.r = rgb.b - max(rgb.r, rgb.g);
+		gl_FragColor = vec4(rgb.rrr, a);
+		
+	} else if(mode == 13){
+
+		rgb.r = ((rgb.r + rgb.g)/2.0 - abs(rgb.r - rgb.g)) - rgb.b;
+		gl_FragColor = vec4(rgb.rrr, a);
+		
+	}
 	
 	
 	//gl_FragColor = texture2D(u_image, texCoord).rgba - vec4(0.5, 0.5, 0.5, 0.0);

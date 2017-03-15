@@ -112,33 +112,56 @@ function Renderer(canvasId){
 
 	function render(settings){
 
-		switch(settings.mode){
-			case "protan":
-				var transform = getInterpolatedTransform(colorTransforms.protan, settings.protanIntensity*10);
-				gl.uniformMatrix3fv(colorTransformAttr, false, transform);
-				gl.uniform1i(modeAttr, 0);
-				gl.uniform1f(intensityAttr, settings.protanIntensity);
-			break;
-			case "deutan":
-				var transform = getInterpolatedTransform(colorTransforms.deutan, settings.deutanIntensity*10);
-				gl.uniformMatrix3fv(colorTransformAttr, false, transform);
-				gl.uniform1i(modeAttr, 1);
-				gl.uniform1f(intensityAttr, settings.deutanIntensity);
-			break;
-			case "tritan":
-				var transform = getInterpolatedTransform(colorTransforms.tritan, settings.tritanIntensity*10);
-				gl.uniformMatrix3fv(colorTransformAttr, false, transform);
-				gl.uniform1i(modeAttr, 2);
-				gl.uniform1f(intensityAttr, settings.tritanIntensity);
-			break;
-			case "coneMonochromacy":
-				//var transform = getInterpolatedTransform(colorTransforms.protan, settings.protanIntensity*10);
-				//gl.uniformMatrix3fv(colorTransformAttr, false, transform);
-				gl.uniform1i(modeAttr, 3);
-				gl.uniform1f(intensityAttr, settings.monoIntensity);
-			break;
-			default:
-			break;
+		if(settings.tab == "simulate"){
+			switch(settings.mode){
+				case "protan":
+					var transform = getInterpolatedTransform(colorTransforms.protan, settings.protanIntensity*10);
+					gl.uniformMatrix3fv(colorTransformAttr, false, transform);
+					gl.uniform1i(modeAttr, 0);
+					gl.uniform1f(intensityAttr, settings.protanIntensity);
+				break;
+				case "deutan":
+					var transform = getInterpolatedTransform(colorTransforms.deutan, settings.deutanIntensity*10);
+					gl.uniformMatrix3fv(colorTransformAttr, false, transform);
+					gl.uniform1i(modeAttr, 1);
+					gl.uniform1f(intensityAttr, settings.deutanIntensity);
+				break;
+				case "tritan":
+					var transform = getInterpolatedTransform(colorTransforms.tritan, settings.tritanIntensity*10);
+					gl.uniformMatrix3fv(colorTransformAttr, false, transform);
+					gl.uniform1i(modeAttr, 2);
+					gl.uniform1f(intensityAttr, settings.tritanIntensity);
+				break;
+				case "coneMonochromacy":
+					//var transform = getInterpolatedTransform(colorTransforms.protan, settings.protanIntensity*10);
+					//gl.uniformMatrix3fv(colorTransformAttr, false, transform);
+					gl.uniform1i(modeAttr, 3);
+					gl.uniform1f(intensityAttr, settings.monoIntensity);
+				break;
+				default:
+				break;
+			}
+		} else if(settings.tab == "support"){
+			switch(settings.tool){
+				case "highlight":
+					switch(settings.highlightColor){
+						case "red":
+							gl.uniform1i(modeAttr, 10);
+						break;
+						case "green":
+							gl.uniform1i(modeAttr, 11);
+						break;
+						case "blue":
+							gl.uniform1i(modeAttr, 12);
+						break;
+						case "yellow":
+							gl.uniform1i(modeAttr, 13);
+						break;
+					}
+				break;
+				default:
+				break;
+			}
 		}
 
 		if(lastHeight != canvas.height || lastWidth != canvas.width){
