@@ -121,6 +121,12 @@ void main(void){
 		rgb.r = ((rgb.r + rgb.g)/2.0 - abs(rgb.r - rgb.g)) - rgb.b;
 		gl_FragColor = vec4(rgb.rrr, a);
 		
+	} else if(mode == 20){
+
+		float average = (rgb.r + rgb.b + rgb.b)/3.0;
+		rgb.rgb = (rgb.rgb - average*intensity) * (1.0+2.0*intensity);
+		gl_FragColor = vec4(rgb.rgb, a);
+		
 	}
 	
 	

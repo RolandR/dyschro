@@ -89,19 +89,6 @@
 								<label for="c-coneMonochromacyIntensity">Intensity</label><br />
 								<input  id="c-coneMonochromacyIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
-							<!--div class="setting">
-								Mode<br />
-								<hr />
-								<label class="radioLabel">
-									Luminosity <input type="radio" id="c-modeLuminosity" name="c-monochromeMode" checked />
-								</label><br />
-								<label class="radioLabel">
-									Lightness <input type="radio" id="c-modeLightness" name="c-monochromeMode" />
-								</label><br />
-								<label class="radioLabel">
-									Average <input type="radio" id="c-modeAverage" name="c-monochromeMode" />
-								</label><br />
-							</div-->
 						</div>
 						
 					</section>
@@ -125,6 +112,13 @@
 									<input class="fancyRadio" type="radio" value="yellow" name="colorToHighlight" id="hlYellow">
 									<label class="fancyRadio" for="hlYellow">Yellow</label>
 								</div>
+							</div>
+						</div>
+
+						<div class="settingsBox" id="saturateSettings">
+							<div class="setting">
+								<label for="c-saturateIntensity">Intensity</label><br />
+								<input  id="c-saturateIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
 						</div>
 						
@@ -174,6 +168,9 @@
 					</div>
 					<div class="thumbContainer" onclick="loadImage('pencils.jpg');">
 						<img class="thumb" src="./_exampleImages/thumbs/pencils.jpg" />
+					</div>
+					<div class="thumbContainer" onclick="loadImage('people-per-household.png');">
+						<img class="thumb" src="./_exampleImages/thumbs/people-per-household.png" />
 					</div>
 					<div class="thumbContainer" onclick="loadImage('rainbow.jpg');">
 						<img class="thumb" src="./_exampleImages/thumbs/rainbow.jpg" />

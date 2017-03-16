@@ -159,6 +159,10 @@ function Renderer(canvasId){
 						break;
 					}
 				break;
+				case "saturate":
+					gl.uniform1i(modeAttr, 20);
+					gl.uniform1f(intensityAttr, settings.saturateIntensity);
+				break;
 				default:
 				break;
 			}

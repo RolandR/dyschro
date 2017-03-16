@@ -8,6 +8,7 @@ var settings = {
 	,monoIntensity: 1
 	,tool: "highlight"
 	,highlightColor: "red"
+	,saturateIntensity: 0.5
 }
 
 var controls = new Controls(settings);
@@ -115,6 +116,16 @@ function Controls(presets){
 					}
 				}
 				console.log(this.value);
+				apply();
+			}
+		}
+		,saturateIntensity: {
+			elements: [
+				 document.getElementById("c-saturateIntensity")
+			]
+			,value: presets.saturateIntensity
+			,update: function(e){
+				this.value = e.target.value;
 				apply();
 			}
 		}
