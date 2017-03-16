@@ -163,7 +163,7 @@ function Controls(presets){
 
 
 function switchSimulationSettings(e){
-	var settingsContainers = document.getElementById("simTabContent").getElementsByClassName("settingsBox");
+	var settingsContainers = document.getElementById("simulateTabContent").getElementsByClassName("settingsBox");
 	for(var i in settingsContainers){
 		if(settingsContainers.hasOwnProperty(i)){
 			settingsContainers[i].style.display = "none";
@@ -172,7 +172,7 @@ function switchSimulationSettings(e){
 
 	var showElement = document.getElementById(e.target.value + "Settings");
 	if(showElement){
-		showElement.style.display = "inline-block";
+		showElement.style.display = "flex";
 	}
 }
 
@@ -186,7 +186,7 @@ function switchTool(e){
 
 	var showElement = document.getElementById(e.target.value + "Settings");
 	if(showElement){
-		showElement.style.display = "inline-block";
+		showElement.style.display = "flex";
 	}
 }
 

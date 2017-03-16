@@ -60,10 +60,12 @@ function MouseSlider(){
 	}
 
 	document.onmouseup = function(e){
-		dragging = false;
-		relativeWidth = canvasHider.clientWidth / canvas.clientWidth;
-		canvasSlider.className = "";
-		e.preventDefault();
+		if(dragging){
+			dragging = false;
+			relativeWidth = canvasHider.clientWidth / canvas.clientWidth;
+			canvasSlider.className = "";
+			e.preventDefault();
+		}
 	}
 
 	function resize(){

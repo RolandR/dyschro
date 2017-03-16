@@ -9,15 +9,25 @@
 	</head>
 	<body>
 		<nav id="menu">
-			<h1>Color Blindness Tools</h1>
-			<hr />
-			<img id="thumbnailImage" src="./_exampleImages/fruits.jpg" height="110"/><br />
-			<button id="openImage" onclick="showOverlay()">Select Image...</button>
-			<ul class="tabsContainer">
-				<li class="tabShell">
-					<input class="tabRadio" type="radio" name="tabs" id="simTab" value="simulate" checked />
-					<label class="tabLabel" for="simTab">Simulation</label>
-					<div class="tab" id="simTabContent">
+			<div>
+				<h1>Color Blindness Tools</h1>
+				<hr />
+				<img id="thumbnailImage" src="./_exampleImages/fruits.jpg" height="110"/><br />
+				<button id="openImage" onclick="showOverlay()">Select Image...</button>
+			</div>
+			<div class="tabsContainer" id="settingsTabs">
+				<nav>
+					<label>
+						<input type="radio" name="tabs" id="simTab" value="simulate" checked />
+						<span>Simulation</span>
+					</label>
+					<label>
+						<input type="radio" name="tabs" id="supportTab" value="support" />
+						<span>Helpful Tools</span>
+					</label>
+				</nav>
+				<article>
+					<section id="simulateTabContent">
 						<select id="c-simulateMode">
 							<optgroup label="Dichromacy">
 								<option value="protan">Protanopia</option>
@@ -34,11 +44,14 @@
 								<label for="c-protanIntensity">Intensity</label><br />
 								<input  id="c-protanIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
-							<p class="settingsInfo">
-								Simulation based on the method described by
-								<a href="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">
-									Machado, Oliveira, Fernandes (2009)</a>.
-							</p>
+							<div class="settingsSpacer"></div>
+							<div class="settingsInfo">
+								<p>
+									Simulation based on the method described by
+									<a href="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">
+										Machado, Oliveira, Fernandes (2009)</a>.
+								</p>
+							</div>
 						</div>
 						
 						<div class="settingsBox" id="deutanSettings">
@@ -46,11 +59,14 @@
 								<label for="c-deutanIntensity">Intensity</label><br />
 								<input  id="c-deutanIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
-							<p class="settingsInfo">
-								Simulation based on the method described by
-								<a href="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">
-									Machado, Oliveira, Fernandes (2009)</a>.
-							</p>
+							<div class="settingsSpacer"></div>
+							<div class="settingsInfo">
+								<p>
+									Simulation based on the method described by
+									<a href="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">
+										Machado, Oliveira, Fernandes (2009)</a>.
+								</p>
+							</div>
 						</div>
 						
 						<div class="settingsBox" id="tritanSettings">
@@ -58,11 +74,14 @@
 								<label for="c-tritanIntensity">Intensity</label><br />
 								<input  id="c-tritanIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
-							<p class="settingsInfo">
-								Simulation based on the method described by
-								<a href="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">
-									Machado, Oliveira, Fernandes (2009)</a>.
-							</p>
+							<div class="settingsSpacer"></div>
+							<div class="settingsInfo">
+								<p>
+									Simulation based on the method described by
+									<a href="http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">
+										Machado, Oliveira, Fernandes (2009)</a>.
+								</p>
+							</div>
 						</div>
 						
 						<div class="settingsBox" id="coneMonochromacySettings">
@@ -85,13 +104,8 @@
 							</div-->
 						</div>
 						
-					</div>
-				</li>
-
-				<li class="tabShell">
-					<input class="tabRadio" type="radio" name="tabs" id="supportTab" value="support" />
-					<label class="tabLabel" for="supportTab">Helpful Tools</label>
-					<div class="tab" id="supportTabContent">
+					</section>
+					<section class="tab" id="supportTabContent">
 						<select id="c-toolSelect">
 							<option value="highlight">Highlight Color</option>
 							<option value="saturate">Saturate</option>
@@ -114,9 +128,9 @@
 							</div>
 						</div>
 						
-					</div>
-				</li>
-			</ul>
+					</section>
+				</article>
+			</div>
 		</nav>
 		
 		<div id="imageContainer">
@@ -177,6 +191,8 @@
 			</div>
 		</div>
 
+		<script type="text/javascript" src="./_js/tabs.js"></script>
+		
 		<script type="text/javascript" src="./_js/colorTransforms.js"></script>
 		
 		<script type="text/javascript" src="./_js/webgl/fragmentshader.js"></script>

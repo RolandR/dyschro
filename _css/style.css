@@ -41,6 +41,16 @@ a:hover{
 	background-color: #555555;
 	text-align: center;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+#menu > div:first-child{
+	flex-basis: auto;
+}
+
+#menu > .tabsContainer{
+	flex-grow: 1;
 }
 
 #openImage{
@@ -123,30 +133,42 @@ a:hover{
 	display: none;
 }
 
+#c-simulateMode,
+#c-toolSelect{
+	flex-shrink: 0;
+	align-self: center;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
 .settingsBox{
+	flex: 1;
+	height: 100%;
 	display: none;
-	margin-top: 10px;
+	flex-direction: column;
 	text-align: left;
-	
 }
 
 .setting{
 	text-align: left;
 	background-color: #555555;
-    margin: 10px;
+    margin: 10px auto;
     padding: 5px 10px;
     width: 200px;
+    
+}
+
+.settingsSpacer{
+	flex: 1;
 }
 
 .settingsInfo{
     padding: 5px 10px;
-	position: absolute;
-	left: 0px;
 }
 
 #protanSettings,
 #highlightSettings{
-	display: inline-block;
+	display: flex;
 }
 
 .setting label{
