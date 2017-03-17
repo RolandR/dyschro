@@ -1,16 +1,55 @@
+
+<!--
+
+	========================================================================
+
+	Color Blindness Tools
+	
+	A collection of tools for simulating and providing assistance
+	with various forms of color vision deficiency.
+	
+	Copyright (C) 2017 Roland Rytz <roland@draemm.li>
+	Licensed under the GNU Affero General Public License Version 3
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as
+	published by the Free Software Foundation, either version 3 of the
+	License, or (at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+	For more information, see:
+	https://draemm.li/various/colorVision/license.txt
+	
+	========================================================================
+
+-->
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+		
 		<title>
 			Color Blindness Tools
 		</title>
+
+		<meta name="description" content="Simulations and helpful tools for various forms of color vision deficiency">
+		<meta name="author" content="Roland Rytz">
+		<meta name="keywords" content="color blindness, color vision deficiency, color blindness simulation, dichromacy, protanopy, deuteranopy, tritanopy">
+		<meta name="application-name" content="Color Blindness Tools">
+		<meta name="robots" content="index, follow">
+		
 		<link href="./_css/style.css" rel="stylesheet" type="text/css" media="all">
 	</head>
 	<body>
-		<nav id="menu">
+		<header id="menu">
 			<div>
-				<h1>Color Blindness Tools</h1>
+				<a href="./">
+					<h1>Color Blindness Tools</h1>
+				</a>
 				<hr />
 				<img id="thumbnailImage" src="./_exampleImages/fruits.jpg" height="110"/><br />
 				<button id="openImage" onclick="showOverlay()">Select Image...</button>
@@ -19,11 +58,11 @@
 				<nav>
 					<label>
 						<input type="radio" name="tabs" id="simTab" value="simulate" checked />
-						<span>Simulation</span>
+						<h2>Simulation</h2>
 					</label>
 					<label>
 						<input type="radio" name="tabs" id="supportTab" value="support" />
-						<span>Helpful Tools</span>
+						<h2>Helpful Tools</h2>
 					</label>
 				</nav>
 				<article>
@@ -157,24 +196,27 @@
 					</section>
 				</article>
 			</div>
-		</nav>
+			<footer>
+				<small>
+					Code by <a href="/">Roland Rytz</a>. Source on <a target="_blank" href="https://github.com/RolandR/dyschro">GitHub</a>.
+				</small>
+			</footer>
+		</header>
 		
 		<div id="imageContainer">
-				<div id="canvasContainer">
-					<div id="canvasHiderContainer">
-						<div id="canvasHider">
-							<canvas id="render"></canvas>
-						</div>
-						<div id="canvasSlider">
-							<div class="dragger" id="upperDragger">&lt;||&gt;</div>
-							<div class="dragger" id="lowerDragger">&lt;||&gt;</div>
-						</div>
+			<div id="canvasContainer">
+				<div id="canvasHiderContainer">
+					<div id="canvasHider">
+						<canvas id="render"></canvas>
+					</div>
+					<div id="canvasSlider">
+						<div class="dragger" id="upperDragger">&lt;||&gt;</div>
+						<div class="dragger" id="lowerDragger">&lt;||&gt;</div>
 					</div>
 				</div>
-				<img id="image" />
+			</div>
+			<img id="image" />
 		</div>
-
-		<canvas id="buffer"></canvas>
 
 		<div id="overlay">
 			<div class="overlayWindow">
