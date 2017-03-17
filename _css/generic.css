@@ -52,15 +52,45 @@ select{
 	padding: 3px;
 }
 
+select{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-image: url(../_img/arrowDown.svg), linear-gradient(to bottom, #888888, #666666);
+	background-repeat: no-repeat, repeat;
+	background-position: calc(100% - 10px) center, 0 0;
+	background-size: 10px, cover;
+	padding-left: 7px;
+}
+
+select:hover{
+	background-image: url(../_img/arrowDown.svg), linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(180, 180, 180, 0.5));
+}
+
+select:active{
+	background-image: url(../_img/arrowDown.svg), linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(180, 180, 180, 0.8));
+}
+
+select.inlineSelect{
+	display: inline-block;
+	width: 50%;
+	height: auto;
+	margin-bottom: 5px;
+}
+
+label.inlineLabel
+,.setting label.inlineLabel{
+	width: 30%;
+	margin-left: 10px;
+}
+
 button:hover,
-select:hover,
 .fileLabel:hover{
 	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(180, 180, 180, 0.5));
 	border: 1px rgba(0, 0, 0, 0.6) outset;
 }
 
 button:active,
-select:active,
 .fileLabel:active{
 	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(180, 180, 180, 0.8));
 	border: 1px rgba(0, 0, 0, 0.8) outset;
@@ -100,7 +130,6 @@ input[type="file"]{
 
 hr{
 	border-top: 1px #888888 solid;
-	margin-top: 0px;
 	margin-bottom: 5px;
 }
 

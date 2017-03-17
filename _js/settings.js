@@ -9,6 +9,10 @@ var settings = {
 	,tool: "highlight"
 	,highlightColor: "red"
 	,saturateIntensity: 0.5
+	,rotateAngle: 0.5
+	,replaceRed: 2
+	,replaceGreen: 1
+	,replaceBlue: 0
 }
 
 var controls = new Controls(settings);
@@ -31,7 +35,6 @@ function Controls(presets){
 						}
 					}
 				}
-				console.log(this.value);
 				apply();
 			}
 		}
@@ -115,7 +118,6 @@ function Controls(presets){
 						}
 					}
 				}
-				console.log(this.value);
 				apply();
 			}
 		}
@@ -126,6 +128,46 @@ function Controls(presets){
 			,value: presets.saturateIntensity
 			,update: function(e){
 				this.value = e.target.value;
+				apply();
+			}
+		}
+		,rotateAngle: {
+			elements: [
+				 document.getElementById("c-rotateAngle")
+			]
+			,value: presets.rotateAngle
+			,update: function(e){
+				this.value = e.target.value;
+				apply();
+			}
+		}
+		,replaceRed: {
+			elements: [
+				 document.getElementById("c-replaceRed")
+			]
+			,value: presets.replaceRed
+			,update: function(e){
+				this.value = e.target.value*1;
+				apply();
+			}
+		}
+		,replaceGreen: {
+			elements: [
+				 document.getElementById("c-replaceGreen")
+			]
+			,value: presets.replaceGreen
+			,update: function(e){
+				this.value = e.target.value*1;
+				apply();
+			}
+		}
+		,replaceBlue: {
+			elements: [
+				 document.getElementById("c-replaceBlue")
+			]
+			,value: presets.replaceBlue
+			,update: function(e){
+				this.value = e.target.value*1;
 				apply();
 			}
 		}
@@ -150,6 +192,7 @@ function Controls(presets){
 							input.elements[e].value = input.value;
 							input.elements[e].checked = input.value;
 							input.elements[e].oninput = input.update.bind(input);
+							input.elements[e].onchange = input.update.bind(input);
 							//input.elements[e].onclick = input.update.bind(input);
 						}
 					}

@@ -96,7 +96,7 @@
 						<select id="c-toolSelect">
 							<option value="highlight">Highlight Color</option>
 							<option value="saturate">Saturate</option>
-							<option value="switch">Switch colors</option>
+							<option value="replace">Switch colors</option>
 							<option value="rotate">Rotate hue</option>
 						</select>
 
@@ -119,6 +119,38 @@
 							<div class="setting">
 								<label for="c-saturateIntensity">Intensity</label><br />
 								<input  id="c-saturateIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
+							</div>
+						</div>
+
+						<div class="settingsBox" id="rotateSettings">
+							<div class="setting">
+								<label for="c-rotateAngle">Angle</label><br />
+								<input  id="c-rotateAngle" type="range" min="0" max="1" step="0.01" value="1" /><br />
+							</div>
+						</div>
+
+						<div class="settingsBox" id="replaceSettings">
+							<div class="setting">
+								<label>Color Replacements</label>
+								<hr>
+								<label class="inlineLabel" for="">Red:</label>
+								<select id="c-replaceRed" class="inlineSelect">
+									<option value="0">Red</option>
+									<option value="1">Green</option>
+									<option value="2">Blue</option>
+								</select><br />
+								<label class="inlineLabel" for="">Green:</label>
+								<select id="c-replaceGreen" class="inlineSelect">
+									<option value="0">Red</option>
+									<option value="1">Green</option>
+									<option value="2">Blue</option>
+								</select><br />
+								<label class="inlineLabel" for="">Blue:</label>
+								<select id="c-replaceBlue" class="inlineSelect">
+									<option value="0">Red</option>
+									<option value="1">Green</option>
+									<option value="2">Blue</option>
+								</select><br />
 							</div>
 						</div>
 						

@@ -57,9 +57,15 @@ function Renderer(canvasId){
 		// Use the combined shader program object
 		gl.useProgram(shaderProgram);
 
-		console.log(gl.getShaderInfoLog(vertShader));
-		console.log(gl.getShaderInfoLog(fragShader));
-		console.log(gl.getProgramInfoLog(shaderProgram));
+		if(gl.getShaderInfoLog(vertShader)){
+			console.warn(gl.getShaderInfoLog(vertShader));
+		}
+		if(gl.getShaderInfoLog(fragShader)){
+			console.warn(gl.getShaderInfoLog(fragShader));
+		}
+		if(gl.getProgramInfoLog(shaderProgram)){
+			console.warn(gl.getProgramInfoLog(shaderProgram));
+		}
 
 
 		vertexBuffer = gl.createBuffer();
@@ -162,6 +168,24 @@ function Renderer(canvasId){
 				case "saturate":
 					gl.uniform1i(modeAttr, 20);
 					gl.uniform1f(intensityAttr, settings.saturateIntensity);
+				break;
+				case "rotate":
+					gl.uniform1i(modeAttr, 30);
+					gl.uniform1f(intensityAttr, settings.rotateAngle);
+				break;
+				case "replace":
+					var transform = [
+						0, 0, 0,
+						0, 0, 0,
+						0, 0, 0
+					];
+					
+					transform[  settings.replaceRed] = 1;
+					transform[3+settings.replaceGreen] = 1;
+					transform[6+settings.replaceBlue] = 1;
+					
+					gl.uniform1i(modeAttr, 40);
+					gl.uniformMatrix3fv(colorTransformAttr, false, transform);
 				break;
 				default:
 				break;

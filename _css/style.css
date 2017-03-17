@@ -155,7 +155,11 @@ a:hover{
     margin: 10px auto;
     padding: 5px 10px;
     width: 200px;
-    
+}
+
+.setting hr{
+	margin-top: 3px;
+	margin-bottom: 7px;
 }
 
 .settingsSpacer{

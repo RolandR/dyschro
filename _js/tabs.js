@@ -32,7 +32,6 @@ function Tabs(tabsContainerId){
 	function init(){
 		for(var i in radios){
 			if(radios.hasOwnProperty(i)){
-				console.log(radios[i]);
 				radios[i].addEventListener('click', update);
 			}
 		}
