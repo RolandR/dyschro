@@ -10,8 +10,6 @@ function Renderer(canvasId){
 	var modeAttr;
 	var colorTransformAttr;
 	var intensityAttr;
-	var intensityIndexAttr;
-	var pixels = new Uint8Array(canvas.width*canvas.height*4);
 
 	var lastHeight = canvas.height;
 	var lastWidth = canvas.width;
@@ -139,8 +137,6 @@ function Renderer(canvasId){
 					gl.uniform1f(intensityAttr, settings.tritanIntensity);
 				break;
 				case "coneMonochromacy":
-					//var transform = getInterpolatedTransform(colorTransforms.protan, settings.protanIntensity*10);
-					//gl.uniformMatrix3fv(colorTransformAttr, false, transform);
 					gl.uniform1i(modeAttr, 3);
 					gl.uniform1f(intensityAttr, settings.monoIntensity);
 				break;
@@ -194,19 +190,12 @@ function Renderer(canvasId){
 
 		if(lastHeight != canvas.height || lastWidth != canvas.width){
 			gl.viewport(0, 0, canvas.width, canvas.height);
-			//pixels = new Uint8Array(canvas.width*canvas.height*4);
 		}
 
 		gl.drawArrays(gl.TRIANGLES, 0, size);
 
-		//gl.readPixels(0, 0, canvas.width, canvas.height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
-
-		//pixels = pixels.copyWithin(4*canvas.width, 0);
-
 		lastHeight = canvas.height;
 		lastWidth = canvas.width;
-
-		//window.setTimeout(function(){render(pixels)}, 100);
 		
 	}
 

@@ -162,8 +162,6 @@ void main(void){
 		
 	}
 	
-	
-	//gl_FragColor = texture2D(u_image, texCoord).rgba - vec4(0.5, 0.5, 0.5, 0.0);
 }
 
 `;

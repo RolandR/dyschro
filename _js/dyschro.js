@@ -2,13 +2,7 @@ var image = new Image();
 var imageElement = document.getElementById("image");
 var imageContainer = document.getElementById("imageContainer");
 
-/*var bufferCanvas = document.getElementById("buffer");
-var bufferContext = buffer.getContext("2d");*/
-
 var canvas = document.getElementById("render");
-/*var context = canvas.getContext("2d");*/
-
-//var converter = new Converter();
 
 var renderer = new Renderer("render");
 
@@ -141,13 +135,7 @@ document.onkeyup = function(e){
 function prepareImage(){
 
 	canvas.width = image.width;
-	//bufferCanvas.width = image.width;
 	canvas.height = image.height;
-	//bufferCanvas.height = image.height;
-
-	//bufferContext.drawImage(image, 0, 0);
-
-	//converter.convert(presets);
 
 	renderer.setImage(image);
 	renderer.render(settings);
