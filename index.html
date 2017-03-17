@@ -74,7 +74,7 @@
 								<option value="tritan">Tritanopia</option>
 							</optgroup>
 							<optgroup label="Monochromacy">
-								<option value="coneMonochromacy">Cone Monochromacy</option>
+								<option value="rodMonochromacy">Rod Monochromacy</option>
 							</optgroup>
 						</select>
 						
@@ -123,10 +123,14 @@
 							</div>
 						</div>
 						
-						<div class="settingsBox" id="coneMonochromacySettings">
+						<div class="settingsBox" id="rodMonochromacySettings">
 							<div class="setting">
-								<label for="c-coneMonochromacyIntensity">Intensity</label><br />
-								<input  id="c-coneMonochromacyIntensity" type="range" min="0" max="1" step="0.01" value="1" /><br />
+								<label for="c-contrastLoss">Contrast Loss</label><br />
+								<input  id="c-contrastLoss" type="range" min="0" max="1" step="0.01" value="1" /><br />
+							</div>
+							<div class="setting">
+								<label for="c-acuityLoss">Acuity Loss</label><br />
+								<input  id="c-acuityLoss" type="range" min="0" max="1" step="0.01" value="1" /><br />
 							</div>
 						</div>
 						
@@ -202,20 +206,22 @@
 				</small>
 			</footer>
 		</header>
-		
-		<div id="imageContainer">
-			<div id="canvasContainer">
-				<div id="canvasHiderContainer">
-					<div id="canvasHider">
-						<canvas id="render"></canvas>
-					</div>
-					<div id="canvasSlider">
-						<div class="dragger" id="upperDragger">&lt;||&gt;</div>
-						<div class="dragger" id="lowerDragger">&lt;||&gt;</div>
+
+		<div id="maxContainer">
+			<div id="imageContainer">
+				<div id="canvasContainer">
+					<div id="canvasHiderContainer">
+						<div id="canvasHider">
+							<canvas id="render"></canvas>
+						</div>
+						<div id="canvasSlider">
+							<div class="dragger" id="upperDragger">&lt;||&gt;</div>
+							<div class="dragger" id="lowerDragger">&lt;||&gt;</div>
+						</div>
 					</div>
 				</div>
+				<img id="image" />
 			</div>
-			<img id="image" />
 		</div>
 
 		<div id="overlay">

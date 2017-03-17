@@ -126,6 +126,7 @@ small{
 #canvasHider{
 	width: 100%;
 	overflow: hidden;
+	background-color: #000000;
 }
 
 #canvasSlider{
@@ -137,6 +138,10 @@ small{
 	height: 100%;
 	cursor: col-resize;
 	z-index: 0;
+}
+
+canvas#render{
+	vertical-align: top;
 }
 
 .dragger{
@@ -161,11 +166,7 @@ small{
 }
 
 #lowerDragger{
-	bottom: -15px;
-}
-
-#buffer{
-	display: none;
+	bottom: -20px;
 }
 
 #c-simulateMode,

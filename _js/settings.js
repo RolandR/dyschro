@@ -32,7 +32,8 @@ var settings = {
 	,protanIntensity: 1
 	,deutanIntensity: 1
 	,tritanIntensity: 1
-	,monoIntensity: 1
+	,contrastLoss: 0.5
+	,acuityLoss: 0.2
 	,tool: "highlight"
 	,highlightColor: "red"
 	,saturateIntensity: 0.5
@@ -106,11 +107,21 @@ function Controls(presets){
 				apply();
 			}
 		}
-		,monoIntensity: {
+		,contrastLoss: {
 			elements: [
-				 document.getElementById("c-coneMonochromacyIntensity")
+				 document.getElementById("c-contrastLoss")
 			]
-			,value: presets.monoIntensity
+			,value: presets.contrastLoss
+			,update: function(e){
+				this.value = e.target.value;
+				apply();
+			}
+		}
+		,acuityLoss: {
+			elements: [
+				 document.getElementById("c-acuityLoss")
+			]
+			,value: presets.acuityLoss
 			,update: function(e){
 				this.value = e.target.value;
 				apply();

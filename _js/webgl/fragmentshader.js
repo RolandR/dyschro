@@ -35,6 +35,7 @@ varying vec2 texCoord;
 
 uniform int mode;
 uniform float intensity;
+uniform float contrastLoss;
 
 uniform mat3 colorTransform;
 
@@ -141,12 +142,14 @@ void main(void){
 	} else if(mode == 3){
 		
 		float gray = dot(rgb, vec3(0.299, 0.587, 0.114));
-		vec3 grayPart = vec3(gray, gray, gray);
+		rgb = vec3(gray, gray, gray);
 
-		grayPart = pow(grayPart, vec3(2.2, 2.2, 2.2));
+		rgb = rgb * (1.0-contrastLoss) + contrastLoss*0.2;
+
+		/*grayPart = pow(grayPart, vec3(2.2, 2.2, 2.2));
 		rgb = pow(rgb, vec3(2.2, 2.2, 2.2));
 		rgb = grayPart * intensity + rgb * (1.0 - intensity);
-		rgb = pow(rgb, vec3(1.0/2.2, 1.0/2.2, 1.0/2.2));
+		rgb = pow(rgb, vec3(1.0/2.2, 1.0/2.2, 1.0/2.2));*/
 
 		gl_FragColor = vec4(rgb, a);
 		

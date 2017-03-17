@@ -37,6 +37,9 @@ function Renderer(canvasId){
 	var modeAttr;
 	var colorTransformAttr;
 	var intensityAttr;
+	var contrastLossAttr;
+	var acuityLossAttr;
+	var texResolutionAttr;
 
 	var lastHeight = canvas.height;
 	var lastWidth = canvas.width;
@@ -126,6 +129,9 @@ function Renderer(canvasId){
 		modeAttr = gl.getUniformLocation(shaderProgram, "mode");
 		colorTransformAttr = gl.getUniformLocation(shaderProgram, "colorTransform");
 		intensityAttr = gl.getUniformLocation(shaderProgram, "intensity");
+		contrastLossAttr = gl.getUniformLocation(shaderProgram, "contrastLoss");
+		acuityLossAttr = gl.getUniformLocation(shaderProgram, "acuityLoss");
+		texResolutionAttr = gl.getUniformLocation(shaderProgram, "texResolution");
 
 		var texture = gl.createTexture();
 		gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -163,9 +169,11 @@ function Renderer(canvasId){
 					gl.uniform1i(modeAttr, 2);
 					gl.uniform1f(intensityAttr, settings.tritanIntensity);
 				break;
-				case "coneMonochromacy":
+				case "rodMonochromacy":
 					gl.uniform1i(modeAttr, 3);
-					gl.uniform1f(intensityAttr, settings.monoIntensity);
+					gl.uniform1f(contrastLossAttr, settings.contrastLoss);
+					gl.uniform2f(texResolutionAttr, image.width, image.height);
+					canvas.style.filter = "blur("+settings.acuityLoss*30+"px)";
 				break;
 				default:
 				break;
