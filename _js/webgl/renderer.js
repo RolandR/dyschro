@@ -149,6 +149,8 @@ function Renderer(canvasId){
 
 	function render(settings){
 
+		canvas.style.filter = "blur(0px)";
+
 		if(settings.tab == "simulate"){
 			switch(settings.mode){
 				case "protan":
