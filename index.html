@@ -226,19 +226,21 @@
 
 		<div id="overlay">
 			<div class="overlayWindow">
-				<button class="closeOverlayButton" onclick="hideOverlay()">X</button>
-				<h2>Select Image</h2>
-				<hr />
-				<div id="uploadMethods">
-					<label id="fileUploadLabel" class="fileLabel" for="fileUpload">
-						Upload...
-						<input id="fileUpload" type="file" accept="image/*" value="Upload..." onchange="uploadFile(this.files)" />
-					</label>
-					<span id="or">or</span>
-					<div id="fileDragTarget">Drag an image here...</div>
+				<div class="flex-fixed">
+					<button class="closeOverlayButton" onclick="hideOverlay()">X</button>
+					<h2>Select Image</h2>
+					<hr />
+					<div id="uploadMethods">
+						<label id="fileUploadLabel" class="fileLabel" for="fileUpload">
+							Upload...
+							<input id="fileUpload" type="file" accept="image/*" value="Upload..." onchange="uploadFile(this.files)" />
+						</label>
+						<span id="or">or</span>
+						<div id="fileDragTarget">Drag an image here...</div>
+					</div>
+					<hr />
+					Or choose from these examples:
 				</div>
-				<hr />
-				Or choose from these examples:
 				<div id="thumbsContainer">
 					<div class="thumbContainer" onclick="loadImage('lorikeet.jpg');">
 						<img class="thumb" src="./_exampleImages/thumbs/lorikeet.jpg" />
