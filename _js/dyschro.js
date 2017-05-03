@@ -40,6 +40,41 @@ function init(){
 	
 	window.onresize = scaleCanvas;
 	scaleCanvas();
+
+	var dragTarget = document.getElementById("fileDragTarget");
+	window.addEventListener('drag', anyDrag);
+	window.addEventListener('dragstart', anyDrag);
+	window.addEventListener('dragend', anyDrag);
+	window.addEventListener('dragover', anyDrag);
+	window.addEventListener('dragenter', anyDrag);
+	window.addEventListener('dragleave', anyDrag);
+	window.addEventListener('drop', anyDrag);
+
+	dragTarget.addEventListener('dragover', dragStart);
+	dragTarget.addEventListener('dragenter', dragStart);
+
+	dragTarget.addEventListener('dragleave', dragStop);
+	dragTarget.addEventListener('dragend', dragStop);
+	dragTarget.addEventListener('drop', dragStop);
+	
+	window.addEventListener('drop', drop);
+
+	function anyDrag(e){
+		e.preventDefault();
+		e.stopPropagation();
+	}
+
+	function dragStart(e){
+		dragTarget.className = "dragOver";
+	}
+
+	function dragStop(e){
+		dragTarget.className = "";
+	}
+
+	function drop(e){
+		uploadFile(e.dataTransfer.files);
+	}
 	
 	var src = "lorikeet.jpg";
 
